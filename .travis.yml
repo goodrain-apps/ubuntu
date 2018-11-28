@@ -1,0 +1,12 @@
+sudo: required
+
+services:
+  - docker
+
+git:
+  depth: 1
+
+script:
+- docker build -t rainbond/baseimage:ubuntu1604 .
+- docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+- docker push rainbond/baseimage:ubuntu1604
